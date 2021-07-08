@@ -17,11 +17,13 @@ function NewTaskForm({ categories, onTaskFormSubmit }) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    onTaskFormSubmit(formData)
-    setFormData({
-      text: "",
-      category: "Code"
-    })
+    if (formData.text.trim().length > 0) {
+      onTaskFormSubmit(formData)
+      setFormData({
+        text: "",
+        category: "Code"
+      })
+    }
   }
 
   return (
